@@ -1,0 +1,1414 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: Arial, sans-serif;
+
+    background:
+        radial-gradient(circle at top left, #ff9933 0%, transparent 35%),
+        radial-gradient(circle at bottom right, #138808 0%, transparent 35%),
+        linear-gradient(135deg, #fff7ed, #ffffff);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+
+/* ================= MAIN CARD ================= */
+
+.game-container {
+
+    width: 520px;
+    max-width: 95%;
+
+    padding: 40px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.88);
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.15);
+
+    backdrop-filter: blur(15px);
+
+    animation: cardAppear 0.6s ease;
+}
+
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* ================= TITLE ================= */
+
+h1 {
+
+    font-size: 44px;
+
+    margin-bottom: 8px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff9933,
+            #138808
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+
+h2 {
+
+    color: #222;
+
+    margin-bottom: 15px;
+}
+
+
+p {
+
+    font-size: 18px;
+
+    color: #555;
+}
+
+
+/* ================= PLAYER NAME ================= */
+
+#player-name {
+
+    width: 85%;
+
+    padding: 15px;
+
+    margin: 20px 0;
+
+    border: 2px solid #ff9933;
+
+    border-radius: 15px;
+
+    font-size: 17px;
+
+    text-align: center;
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+
+#player-name:focus {
+
+    border-color: #138808;
+
+    box-shadow:
+        0 0 15px rgba(19, 136, 8, 0.25);
+
+    transform: scale(1.02);
+}
+
+
+/* ================= BUTTONS ================= */
+
+button {
+
+    border: none;
+
+    border-radius: 15px;
+
+    padding: 15px 25px;
+
+    margin-top: 15px;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff9933,
+            #ff7b00
+        );
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+
+    box-shadow:
+        0 6px 15px rgba(255, 153, 51, 0.25);
+}
+
+
+button:hover {
+
+    transform:
+        translateY(-3px)
+        scale(1.03);
+
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+button:active {
+
+    transform: scale(0.97);
+}
+
+
+/* ================= CATEGORY BUTTONS ================= */
+
+#category-screen button {
+
+    display: block;
+
+    width: 100%;
+
+    margin: 15px 0;
+
+    padding: 18px;
+
+    font-size: 18px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff9933,
+            #138808
+        );
+}
+
+
+/* ================= GAME INFO ================= */
+
+.game-info {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+
+.game-info span {
+
+    flex: 1;
+
+    padding: 12px 8px;
+
+    border-radius: 15px;
+
+    background: #f5f5f5;
+
+    font-weight: bold;
+
+    font-size: 15px;
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+
+/* ================= QUESTION ================= */
+
+#question {
+
+    font-size: 25px;
+
+    line-height: 1.4;
+
+    animation: questionAppear 0.4s ease;
+}
+
+
+@keyframes questionAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(-15px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+#question-number {
+
+    font-weight: bold;
+
+    color: #777;
+
+    margin: 10px;
+}
+
+
+/* ================= PROGRESS BAR ================= */
+
+.progress-container {
+
+    width: 90%;
+
+    height: 12px;
+
+    margin: 20px auto 30px;
+
+    background: #e5e5e5;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+#progress-bar {
+
+    width: 20%;
+
+    height: 100%;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff9933,
+            #ffffff,
+            #138808
+        );
+
+    transition: width 0.5s ease;
+}
+
+
+/* ================= ANSWERS ================= */
+
+#answers {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+#answers button {
+
+    width: 100%;
+
+    margin-top: 0;
+
+    background: #ffffff;
+
+    color: #222;
+
+    border: 2px solid #eee;
+
+    box-shadow: none;
+
+    text-align: left;
+
+    padding: 16px 20px;
+}
+
+
+#answers button:hover {
+
+    border-color: #ff9933;
+
+    background: #fff8ef;
+
+    transform: translateX(5px);
+}
+
+
+/* ================= LEADERBOARD ================= */
+
+#leaderboard {
+
+    text-align: left;
+
+    padding-left: 35px;
+
+    margin: 15px auto 20px;
+
+    max-width: 350px;
+}
+
+
+#leaderboard li {
+
+    padding: 12px 15px;
+
+    margin: 8px 0;
+
+    border-radius: 12px;
+
+    background: #f7f7f7;
+
+    font-weight: bold;
+
+    color: #333;
+
+    transition: 0.2s;
+}
+
+
+#leaderboard li:hover {
+
+    transform: translateX(5px);
+
+    background: #fff1df;
+}
+
+
+/* ================= HIGH SCORE ================= */
+
+#high-score {
+
+    color: #ff7b00;
+
+    font-size: 22px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+
+    .game-container {
+
+        padding: 25px;
+
+    }
+
+    h1 {
+
+        font-size: 34px;
+
+    }
+
+    #question {
+
+        font-size: 21px;
+
+    }
+
+    .game-info span {
+
+        font-size: 13px;
+
+        padding: 10px 5px;
+
+    }
+
+}/* =================================
+   GAME ANIMATIONS
+================================= */
+
+button {
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.02);
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+/* Quiz answer animation */
+
+#answers button {
+    animation: answerAppear 0.4s ease forwards;
+}
+
+@keyframes answerAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* Score animation */
+
+#game-score {
+    transition: transform 0.3s ease;
+}
+
+/* Progress animation */
+
+#progress-bar {
+    transition: width 0.5s ease;
+}
+/* =================================
+   PROFESSIONAL RESULT SCREEN
+================================= */
+
+.result-screen {
+    text-align: center;
+    animation: resultAppear 0.7s ease;
+}
+
+.result-trophy {
+    font-size: 70px;
+    animation: trophyBounce 1.2s infinite alternate;
+}
+
+.result-subtitle {
+    opacity: 0.7;
+    margin-bottom: 20px;
+}
+
+.result-score {
+    font-size: 55px;
+    font-weight: bold;
+    margin: 15px 0;
+    background: linear-gradient(
+        90deg,
+        #ff9933,
+        #138808
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.result-score span {
+    display: block;
+    font-size: 14px;
+    letter-spacing: 3px;
+    -webkit-text-fill-color: #555;
+}
+
+.result-stats {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.result-card {
+    flex: 1;
+    padding: 15px 8px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.result-card span {
+    display: block;
+    font-size: 24px;
+}
+
+.result-card b {
+    display: block;
+    font-size: 22px;
+    margin: 5px 0;
+}
+
+.result-card small {
+    opacity: 0.7;
+}
+
+.achievement-box {
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 15px;
+    background: linear-gradient(
+        135deg,
+        rgba(255,153,51,0.15),
+        rgba(19,136,8,0.15)
+    );
+}
+
+.achievement-box span {
+    display: block;
+    font-size: 14px;
+}
+
+.achievement-box strong {
+    display: block;
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+@keyframes resultAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(0.85) translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+
+}
+
+@keyframes trophyBounce {
+
+    from {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    to {
+        transform: translateY(-12px) rotate(5deg);
+    }
+
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .result-stats {
+        gap: 6px;
+    }
+
+    .result-card {
+        padding: 12px 5px;
+    }
+
+    .result-score {
+        font-size: 45px;
+    }
+
+}
+/* ==========================================
+   STEP 5 - PROFESSIONAL GAME ANIMATIONS
+   ========================================== */
+
+/* Smooth page appearance */
+.game-container {
+    animation: pageEnter 0.5s ease;
+}
+
+/* Question animation */
+#question {
+    animation: questionAppear 0.5s ease;
+}
+
+/* Answer buttons */
+#answers button {
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#answers button:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+#answers button:active {
+    transform: scale(0.96);
+}
+
+/* Button shine effect */
+#answers button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.5),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+#answers button:hover::before {
+    left: 100%;
+}
+
+/* Score animation */
+#game-score {
+    display: inline-block;
+    animation: scorePulse 1s ease;
+}
+
+/* Streak animation */
+#streak {
+    display: inline-block;
+    animation: streakGlow 1s infinite alternate;
+}
+
+/* Progress bar */
+#progress-bar {
+    transition: width 0.5s ease;
+}
+
+/* Lives */
+#lives {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+/* Category buttons */
+#category-screen button,
+#difficulty-screen button {
+    transition: all 0.25s ease;
+}
+
+#category-screen button:hover,
+#difficulty-screen button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Home buttons */
+#home-screen button {
+    transition: all 0.25s ease;
+}
+
+#home-screen button:hover {
+    transform: translateY(-3px) scale(1.02);
+}
+
+/* Animations */
+
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes questionAppear {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scorePulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes streakGlow {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.08);
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    #answers button {
+        font-size: 15px;
+        padding: 12px;
+    }
+
+    #question {
+        font-size: 20px;
+    }
+
+    .game-info {
+        gap: 8px;
+        font-size: 14px;
+    }
+}
+/* ==========================================
+   STEP 6 - INDIAN HERITAGE THEME
+   ========================================== */
+
+body {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 153, 51, 0.15),
+            rgba(255, 255, 255, 0.85),
+            rgba(19, 136, 8, 0.15)
+        );
+
+    min-height: 100vh;
+}
+
+/* Heritage glow around main card */
+.game-container {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 153, 51, 0.25);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.12),
+        0 0 30px rgba(255, 153, 51, 0.08);
+}
+
+/* Indian tricolour heading */
+.game-container h1 {
+    background:
+        linear-gradient(
+            90deg,
+            #ff9933,
+            #138808
+        );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    background-clip: text;
+}
+
+/* Heritage-style question */
+#question {
+    border-left: 5px solid #ff9933;
+    padding-left: 15px;
+}
+
+/* Progress bar */
+#progress-bar {
+    background:
+        linear-gradient(
+            90deg,
+            #ff9933,
+            #ffffff,
+            #138808
+        );
+
+    border-radius: 20px;
+}
+
+/* Game information */
+.game-info {
+    border-radius: 15px;
+    padding: 10px;
+
+    background: rgba(255, 255, 255, 0.5);
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.06);
+}
+
+/* Answer buttons */
+#answers button {
+    border: 1px solid rgba(255, 153, 51, 0.2);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+#answers button:hover {
+    border-color: #ff9933;
+}
+
+/* Indian flag decorative glow */
+#home-screen::before {
+    content: "🇮🇳";
+    display: block;
+
+    font-size: 55px;
+
+    animation: flagFloat 2s ease-in-out infinite alternate;
+}
+
+@keyframes flagFloat {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-8px);
+    }
+
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    .game-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    #home-screen::before {
+        font-size: 45px;
+    }
+
+}
+/* =========================================
+   STEP 7 - PREMIUM BHARAT QUEST HOME SCREEN
+   ========================================= */
+
+#home-screen {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative circles */
+#home-screen::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: rgba(255, 153, 51, 0.12);
+    top: -100px;
+    right: -80px;
+    animation: heritageCircle 5s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+/* Main title */
+#home-screen h1 {
+    font-size: 42px;
+    letter-spacing: 1px;
+    animation: titleReveal 0.8s ease;
+}
+
+/* Subtitle */
+#home-screen > p {
+    animation: subtitleReveal 1s ease;
+}
+
+/* Player input */
+#player-name {
+    width: 85%;
+    padding: 14px;
+    margin: 15px 0;
+    border-radius: 12px;
+    border: 2px solid rgba(255, 153, 51, 0.3);
+    outline: none;
+    font-size: 16px;
+    transition: 0.3s ease;
+    box-sizing: border-box;
+}
+
+#player-name:focus {
+    border-color: #ff9933;
+    box-shadow: 0 0 15px rgba(255, 153, 51, 0.25);
+    transform: scale(1.02);
+}
+
+/* High score */
+#home-screen #high-score {
+    font-size: 22px;
+    color: #ff9933;
+}
+
+/* Leaderboard */
+#leaderboard {
+    text-align: left;
+    max-width: 320px;
+    margin: 15px auto 20px;
+    padding: 0;
+}
+
+#leaderboard li {
+    list-style-position: inside;
+    padding: 10px 14px;
+    margin: 7px 0;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.65);
+    transition: 0.25s ease;
+}
+
+#leaderboard li:hover {
+    transform: translateX(6px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* Home buttons */
+#home-screen button {
+    margin-top: 8px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Animations */
+
+@keyframes titleReveal {
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes subtitleReveal {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heritageCircle {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+
+    to {
+        transform: translate(-20px, 20px) scale(1.15);
+    }
+}
+
+/* Mobile */
+@media(max-width:600px) {
+
+    #home-screen h1 {
+        font-size: 30px;
+    }
+
+    #player-name {
+        width: 100%;
+    }
+
+    #leaderboard {
+        max-width: 100%;
+    }
+}
+/* =========================================
+   STEP 8 FIX - CATEGORY CARDS
+   ========================================= */
+
+#category-screen {
+    text-align: center;
+    animation: categoryEnter 0.5s ease;
+}
+
+#category-screen h1 {
+    margin-bottom: 8px;
+}
+
+#category-screen > p {
+    opacity: 0.7;
+    margin-bottom: 20px;
+}
+
+/* Category buttons */
+
+#category-screen button {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 10px 0;
+    padding: 16px 20px;
+
+    border-radius: 15px;
+    border: 2px solid rgba(255, 153, 51, 0.15);
+
+    background: rgba(255, 255, 255, 0.9);
+
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+/* Hover */
+
+#category-screen button:hover {
+    transform: translateX(6px);
+    border-color: #ff9933;
+    box-shadow: 0 8px 20px rgba(255, 153, 51, 0.2);
+}
+
+/* Click */
+
+#category-screen button:active {
+    transform: scale(0.97);
+}
+
+/* Home button */
+
+#category-screen button:last-child {
+    text-align: center;
+    margin-top: 20px;
+    background: rgba(19, 136, 8, 0.08);
+}
+
+/* Animation */
+
+@keyframes categoryEnter {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    #category-screen button {
+        width: 100%;
+        padding: 14px;
+        font-size: 15px;
+    }
+}
+/* =========================================
+   STEP 9 - PREMIUM QUIZ SCREEN
+   ========================================= */
+
+#quiz-screen {
+    animation: quizEnter 0.5s ease;
+}
+
+/* Game information */
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.game-info span {
+    flex: 1;
+    padding: 12px 8px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.75);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    font-size: 14px;
+}
+
+#lives {
+    color: #e53935;
+}
+
+#game-score {
+    color: #ff9933;
+    font-weight: bold;
+}
+
+#streak {
+    color: #ff6d00;
+    font-weight: bold;
+}
+
+/* Question */
+
+#question {
+    font-size: 24px;
+    line-height: 1.5;
+    margin: 25px 0 10px;
+    padding: 20px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.65);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+/* Question number */
+
+#question-number {
+    font-size: 14px;
+    opacity: 0.65;
+    margin-bottom: 12px;
+}
+
+/* Progress background */
+
+.progress-container {
+    width: 100%;
+    height: 10px;
+    background: rgba(0,0,0,0.08);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+/* Progress */
+
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(
+        90deg,
+        #ff9933,
+        #ffffff,
+        #138808
+    );
+    border-radius: 20px;
+    transition: width 0.5s ease;
+}
+
+/* Answer buttons */
+
+#answers {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#answers button {
+    width: 100%;
+    padding: 16px 18px;
+    border-radius: 14px;
+    border: 2px solid rgba(255,153,51,0.15);
+    background: rgba(255,255,255,0.85);
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+#answers button:hover {
+    transform: translateX(7px);
+    border-color: #ff9933;
+    box-shadow: 0 8px 20px rgba(255,153,51,0.18);
+    background: white;
+}
+
+#answers button:active {
+    transform: scale(0.97);
+}
+
+/* Quiz entrance */
+
+@keyframes quizEnter {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Question animation */
+
+@keyframes questionSlide {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+#question {
+    animation: questionSlide 0.4s ease;
+}
+
+/* Mobile */
+
+@media(max-width:600px) {
+
+    .game-info {
+        gap: 5px;
+    }
+
+    .game-info span {
+        font-size: 12px;
+        padding: 10px 4px;
+    }
+
+    #question {
+        font-size: 19px;
+        padding: 16px;
+    }
+
+    #answers button {
+        font-size: 15px;
+        padding: 14px;
+    }
+}
+/* BLACK CATEGORY TEXT */
+
+#category-screen button {
+    color: #000000;
+}
+
+#category-screen button:hover {
+    color: #000000;
+}
+
+#category-screen button:last-child {
+    color: #000000;
+}
+/* =========================================
+   STEP 10 - ANSWER FEEDBACK ANIMATIONS
+   ========================================= */
+
+/* Correct answer effect */
+.answer-correct {
+    animation: correctAnswer 0.5s ease;
+    background: #d9f7df !important;
+    border-color: #138808 !important;
+}
+
+/* Wrong answer effect */
+.answer-wrong {
+    animation: wrongAnswer 0.5s ease;
+    background: #ffe0e0 !important;
+    border-color: #e53935 !important;
+}
+
+/* Correct animation */
+@keyframes correctAnswer {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Wrong shake animation */
+@keyframes wrongAnswer {
+    0% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-8px);
+    }
+
+    40% {
+        transform: translateX(8px);
+    }
+
+    60% {
+        transform: translateX(-6px);
+    }
+
+    80% {
+        transform: translateX(6px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Score animation */
+.score-update {
+    animation: scoreUpdate 0.5s ease;
+}
+
+@keyframes scoreUpdate {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.35);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Life lost animation */
+.life-lost {
+    animation: lifeLost 0.5s ease;
+}
+
+@keyframes lifeLost {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.4);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

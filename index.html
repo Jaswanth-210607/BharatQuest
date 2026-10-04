@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bharat Quest</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HOME -->
+    <div class="game-container" id="home-screen">
+
+    <h1>Jaswanth Bharat Quest</h1>
+
+    <p>Explore India • Learn • Play</p>
+
+    <p>🏆 High Score: <b id="high-score">0</b></p>
+
+    <h2>🏆 Top Players</h2>
+
+    <ol id="leaderboard">
+        <li>No scores yet</li>
+    </ol>
+
+    <input
+    type="text"
+    id="player-name"
+    placeholder="Enter your name"
+    maxlength="20"
+>
+
+    <button onclick="showCategories()">Start Game</button>
+    <button onclick="showDashboard()">
+    📊 My Dashboard
+</button>
+
+</div>
+
+<div class="game-container" id="difficulty-screen" style="display: none;">
+
+    <h1>🎯 Choose Difficulty</h1>
+
+    <p>Select your challenge level</p>
+
+    <button onclick="startDifficulty('easy')">
+        🟢 Easy — 10 Points
+    </button>
+
+    <button onclick="startDifficulty('medium')">
+        🟡 Medium — 20 Points
+    </button>
+
+    <button onclick="startDifficulty('hard')">
+        🔴 Hard — 30 Points
+    </button>
+
+    <button onclick="goHome()">🏠 Home</button>
+
+</div>
+<div class="game-container" id="dashboard-screen" style="display: none;">
+
+    <h1>📊 My Dashboard</h1>
+
+    <h2>👤 <span id="dashboard-name">Player</span></h2>
+
+    <p>🎮 Games Played: <b id="games-played">0</b></p>
+
+    <p>⭐ Total Score: <b id="total-score">0</b></p>
+
+    <p>🏆 Highest Score: <b id="dashboard-high-score">0</b></p>
+
+    <p>🔥 Best Streak: <b id="best-streak">0</b></p>
+
+    <p>🏅 Achievement: <b id="dashboard-achievement">None</b></p>
+
+    <button onclick="goHome()">🏠 Home</button>
+
+</div>
+
+<!-- CATEGORY -->
+    <div class="game-container" id="category-screen" style="display: none;">
+
+        <h1>Choose Your Challenge</h1>
+
+        <p>Select a category</p>
+
+        <button onclick="startCategory('monuments')">
+    🏛️ Monuments
+</button>
+
+<button onclick="startCategory('festivals')">
+    🎉 Festivals
+</button>
+
+<button onclick="startCategory('symbols')">
+    IND National Symbols
+</button>
+
+<button onclick="startCategory('food')">
+    🍛 Indian Food
+</button>
+
+<button onclick="startCategory('culture')">
+    💃 Culture & Traditions
+</button>
+
+<button onclick="startCategory('history')">
+    📜 Indian History
+</button>
+
+<button onclick="goHome()">🏠 Home</button>
+
+    </div>
+
+
+    <!-- QUIZ -->
+    <div class="game-container" id="quiz-screen" style="display: none;">
+
+        <div class="game-info">
+
+            <span>❤️ Lives: <b id="lives">3</b></span>
+
+            <span>⭐ Score: <b id="game-score">0</b></span>
+
+            <span>🔥 Streak: <b id="streak">0</b></span>
+
+        </div>
+
+        <h2 id="question">Question will appear here</h2>
+
+        <p id="question-number">Question 1 / 3</p>
+
+        <div class="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+
+        <div id="answers">
+
+            <button onclick="checkAnswer(0)">Answer 1</button>
+
+            <button onclick="checkAnswer(1)">Answer 2</button>
+
+            <button onclick="checkAnswer(2)">Answer 3</button>
+
+            <button onclick="checkAnswer(3)">Answer 4</button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
